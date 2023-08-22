@@ -2,6 +2,7 @@ const display = document.querySelector(".calculator-display__wrapper");
 const buttons = document.querySelectorAll(".btnNum");
 const operatorButtons = document.querySelectorAll(".btnOperator");
 const equalsButton = document.querySelector(".btnEquals");
+const clearButton = document.querySelector(".btnClear");
 
 let firstOperand, secondOperand;
 let operator;
@@ -69,3 +70,7 @@ function clear() {
 buttons.forEach((button) => button.addEventListener("click", displayValue));
 operatorButtons.forEach((operator) => operator.addEventListener("click", displayOperator));
 equalsButton.addEventListener("click", operate);
+clearButton.addEventListener('click', () => {
+    display.textContent = '0';
+    clear();
+});
