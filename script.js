@@ -4,7 +4,7 @@ const operatorButtons = document.querySelectorAll(".btnOperator");
 const equalsButton = document.querySelector(".btnEquals");
 const clearButton = document.querySelector(".btnClear");
 
-let firstOperand, secondOperand;
+let firstOperand = '', secondOperand = '';
 let operator;
 
 function add(firstOperand, secondOperand) {
@@ -27,16 +27,16 @@ function operate() {
     if (!operator || !firstOperand || !secondOperand) return;
     switch (operator) {
         case '+':
-            add(firstOperand, secondOperand);
+            add(+firstOperand, +secondOperand);
             break;
         case '-':
-            subtract(firstOperand, secondOperand);
+            subtract(+firstOperand, +secondOperand);
             break;
         case '×':
-            multiply(firstOperand, secondOperand);
+            multiply(+firstOperand, +secondOperand);
             break;
         case '/':
-            divide(firstOperand, secondOperand);
+            divide(+firstOperand, +secondOperand);
             break;
     }
     clear();
@@ -47,10 +47,10 @@ function displayValue() {
         display.textContent = firstOperand;
         display.textContent += ' ' + operator;
 
-        secondOperand = this.value;
+        secondOperand += '' + this.value;
         display.textContent += ' ' + secondOperand;
     } else {
-        firstOperand = this.value;
+        firstOperand += '' + this.value;
         display.textContent = firstOperand;
     }
 }
@@ -64,7 +64,7 @@ function displayOperator() {
 }
 
 function clear() {
-    firstOperand, secondOperand, operator = null;
+    [firstOperand, secondOperand, operator] = ['', '', ''];
 }
 
 buttons.forEach((button) => button.addEventListener("click", displayValue));
