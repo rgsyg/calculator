@@ -21,8 +21,10 @@ body {
     transform: translate(-50%, -50%);
     width: 30%;
     height: 95%;
-    background-color: antiquewhite;
+    background-color: #a7a7a7;
     border: 2px solid black;
+    border-radius: 6px;
+    box-shadow: 10px 10px #4b4b4b;
 }
 
 .calculator-body__wrapper {
@@ -43,13 +45,14 @@ body {
     flex: 1;
     background-color: white;
     border: 2px solid black;
+    border-radius: 12px;
 }
 
 .calculator-buttons {
     width: 100%;
     flex: 5;
-    background-color: gray;
-    border: 2px solid black;
+    /* background-color: gray;
+    border: 1px solid black; */
 }
 
 .calculator-display__wrapper {
@@ -68,8 +71,8 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 90%;
-    height: 90%;
+    width: 100%;
+    height: 100%;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 4px;
@@ -78,6 +81,7 @@ body {
 input[type="button"] {
     font-size: 1.5em;
     font-weight: lighter;
+    border-radius: 2px;
 }
 
 .btnClear, .btnDivide, .btnZero, .btnEquals {
