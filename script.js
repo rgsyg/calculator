@@ -5,22 +5,28 @@ const equalsButton = document.querySelector(".btnEquals");
 const clearButton = document.querySelector(".btnClear");
 
 let firstOperand = '', secondOperand = '';
+let result;
 let operator;
+let isCleared = false;
 
 function add(firstOperand, secondOperand) {
-    display.textContent = +firstOperand + +secondOperand;
+    result = firstOperand + secondOperand;
+    display.textContent = result;
 }
 
 function subtract(firstOperand, secondOperand) {
-    display.textContent = firstOperand - secondOperand;
+    result = firstOperand - secondOperand;
+    display.textContent = result;
 }
 
 function multiply(firstOperand, secondOperand) {
-    display.textContent = firstOperand * secondOperand;
+    result = firstOperand * secondOperand;
+    display.textContent = result;
 }
 
 function divide(firstOperand, secondOperand) {
-    display.textContent = firstOperand / secondOperand;
+    result = firstOperand / secondOperand;
+    display.textContent = result;
 }
 
 function operate() {
@@ -43,6 +49,7 @@ function operate() {
 }
 
 function displayValue() {
+    isCleared = false;
     if (operator) {
         display.textContent = firstOperand;
         display.textContent += ' ' + operator;
@@ -56,6 +63,7 @@ function displayValue() {
 }
 
 function displayOperator() {
+    if (isCleared) firstOperand = result;
     if (!firstOperand) return;
     display.textContent = firstOperand;
 
@@ -65,6 +73,7 @@ function displayOperator() {
 
 function clear() {
     [firstOperand, secondOperand, operator] = ['', '', ''];
+    isCleared = true;
 }
 
 buttons.forEach((button) => button.addEventListener("click", displayValue));
