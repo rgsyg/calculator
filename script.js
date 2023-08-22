@@ -63,6 +63,7 @@ function displayValue() {
 }
 
 function displayOperator() {
+    secondOperand = '';
     if (isCleared) firstOperand = result;
     if (!firstOperand) return;
     display.textContent = firstOperand;
