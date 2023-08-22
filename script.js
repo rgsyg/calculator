@@ -10,23 +10,28 @@ let operator;
 let isCleared = false;
 
 function add(firstOperand, secondOperand) {
-    result = firstOperand + secondOperand;
+    result = Math.round((firstOperand + secondOperand) * 100) / 100;
     display.textContent = result;
 }
 
 function subtract(firstOperand, secondOperand) {
-    result = firstOperand - secondOperand;
+    result = Math.round((firstOperand - secondOperand) * 100) / 100;
     display.textContent = result;
 }
 
 function multiply(firstOperand, secondOperand) {
-    result = firstOperand * secondOperand;
+    result = Math.round((firstOperand * secondOperand) * 100) / 100;
     display.textContent = result;
 }
 
 function divide(firstOperand, secondOperand) {
-    result = firstOperand / secondOperand;
-    display.textContent = result;
+    if (!(firstOperand / secondOperand === Infinity)) {
+        result = Math.round((firstOperand / secondOperand) * 100) / 100;
+        display.textContent = result;
+    } else {
+        display.textContent = 'Error';
+        result = '';
+    }
 }
 
 function operate() {
